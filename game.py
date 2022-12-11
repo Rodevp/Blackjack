@@ -45,6 +45,16 @@ class BlackJack :
 
         return total
 
+    
+    def reveal_hand_of_dealer(self) :
+
+        if len(self._hand_of_dealer) == 2 :
+            return self._hand_of_dealer[0]
+        
+        if len(self._hand_of_dealer) > 2 :
+            return self._hand_of_dealer[0], self._hand_of_dealer[1] 
+
+        
 
 if __name__ == "__main__" :
     pass
