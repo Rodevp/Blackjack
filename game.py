@@ -15,6 +15,8 @@ class BlackJack :
     ]
     _hand_of_player = []
     _hand_of_dealer = []
+    _player_in = True
+    _dealer_in = True
 
     def __init__(self):
         print("init game")
@@ -61,8 +63,26 @@ class BlackJack :
             self.deal_hand(self._hand_of_dealer)
             self.deal_hand(self._hand_of_player)
 
-        print(self._hand_of_dealer)
-        print(self._hand_of_player)
+        while self._dealer_in or self._player_in :
+            print(f"Hand of dealer {self.reveal_hand_of_dealer()} ")
+            print(f"Your total of in the hand is: You have {self._hand_of_player} total: {self.total_each_hand(self._hand_of_player)}")
+
+            if self._player_in :
+                stay_or_hit = input("1: Stay\n2: Hit\n")
+            
+            if self.total_each_hand(self._hand_of_player) > 16 :
+                self._dealer_in = False 
+            else :
+                self.deal_hand(self._hand_of_dealer)
+
+            if stay_or_hit == '1' :
+                self._player_in = False
+            else : 
+                self.deal_hand(self._hand_of_player)
+
+            if self.total_each_hand(self._hand_of_player) >= 21 : break
+
+            if self.total_each_hand(self._hand_of_dealer) >= 21 : break
 
 
 if __name__ == "__main__" :
