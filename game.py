@@ -76,10 +76,6 @@ class BlackJack :
             else : 
                 self.deal_hand(self._hand_of_player)
 
-            if self.total_each_hand(self._hand_of_player) >= 21 : break
-
-            if self.total_each_hand(self._hand_of_dealer) >= 21 : break
-
 
     def print_you_lose(self) :
         print(f"You have: {self._hand_of_player} equal {self.total_each_hand(self._hand_of_player)}")
