@@ -21,7 +21,7 @@ class BlackJack :
 
 
     def deal_hand(self, turn) :
-        card = random.choice( len( self._deck ) - 1 )
+        card = random.choice( self._deck )
         turn.append(card)
         self._deck.remove(card)
 
@@ -54,7 +54,17 @@ class BlackJack :
         if len(self._hand_of_dealer) > 2 :
             return self._hand_of_dealer[0], self._hand_of_dealer[1] 
 
-        
+    
+    def start(self) :
+
+        for _ in range(2) :
+            self.deal_hand(self._hand_of_dealer)
+            self.deal_hand(self._hand_of_player)
+
+        print(self._hand_of_dealer)
+        print(self._hand_of_player)
+
 
 if __name__ == "__main__" :
-    pass
+    game = BlackJack()
+    game.start()
