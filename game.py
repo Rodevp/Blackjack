@@ -86,7 +86,13 @@ class BlackJack :
         print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
         print("YOU LOSE!!! :(") 
 
+
+    def print_you_win(self) :
+        print(f"You have: {self._hand_of_player} equal {self.total_each_hand(self._hand_of_player)}")
+        print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
+        print("YOU WIN!!! :D")
     
+
     def start(self) :
 
         for _ in range(2) :
@@ -95,23 +101,15 @@ class BlackJack :
 
         self.menu()
 
-        if self.total_each_hand(self._hand_of_player)  == 21 :
-            print(f"You have: {self._hand_of_player} equal 21")
-            print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
-            print("YOU WIN!!! :D")
-
+        if self.total_each_hand(self._hand_of_player)  == 21 : self.print_you_win()
+        if self.total_each_hand(self._hand_of_dealer)  == 21 : self.print_you_lose()
+        
+        if self.total_each_hand(self._hand_of_dealer)  > 21 : self.print_you_win()
         if self.total_each_hand(self._hand_of_player)  > 21 : self.print_you_lose()
 
-        if self.total_each_hand(self._hand_of_dealer)  == 21 : self.print_you_lose()
-
-        if self.total_each_hand(self._hand_of_dealer)  > 21 : self.print_you_lose()
-
+        if 21 - self.total_each_hand(self._hand_of_dealer) > 21 - self.total_each_hand(self._hand_of_player) : self.print_you_win()
         if 21 - self.total_each_hand(self._hand_of_dealer) < 21 - self.total_each_hand(self._hand_of_player) : self.print_you_lose()
 
-        if 21 - self.total_each_hand(self._hand_of_dealer) > 21 - self.total_each_hand(self._hand_of_player) :
-            print(f"You have: {self._hand_of_player} equal {self.total_each_hand(self._hand_of_player)}")
-            print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
-            print("YOU WIN!!! :D")
 
 
 
