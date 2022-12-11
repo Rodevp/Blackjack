@@ -80,6 +80,12 @@ class BlackJack :
 
             if self.total_each_hand(self._hand_of_dealer) >= 21 : break
 
+
+    def print_you_lose(self) :
+        print(f"You have: {self._hand_of_player} equal {self.total_each_hand(self._hand_of_player)}")
+        print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
+        print("YOU LOSE!!! :(") 
+
     
     def start(self) :
 
@@ -94,25 +100,13 @@ class BlackJack :
             print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
             print("YOU WIN!!! :D")
 
-        if self.total_each_hand(self._hand_of_player)  > 21 :
-            print(f"You have: {self._hand_of_player} equal {self.total_each_hand(self._hand_of_player)}")
-            print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
-            print("YOU WIN!!! :D")
+        if self.total_each_hand(self._hand_of_player)  > 21 : self.print_you_lose()
 
-        if self.total_each_hand(self._hand_of_dealer)  == 21 :
-            print(f"You have: {self._hand_of_player} equal {self.total_each_hand(self._hand_of_player)}")
-            print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
-            print("YOU LOSE!!! :(") 
+        if self.total_each_hand(self._hand_of_dealer)  == 21 : self.print_you_lose()
 
-        if self.total_each_hand(self._hand_of_dealer)  > 21 :
-            print(f"You have: {self._hand_of_player} equal {self.total_each_hand(self._hand_of_player)}")
-            print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
-            print("YOU LOSE!!! :(")
+        if self.total_each_hand(self._hand_of_dealer)  > 21 : self.print_you_lose()
 
-        if 21 - self.total_each_hand(self._hand_of_dealer) < 21 - self.total_each_hand(self._hand_of_player) :
-            print(f"You have: {self._hand_of_player} equal {self.total_each_hand(self._hand_of_player)}")
-            print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
-            print("YOU LOSE!!! :(")
+        if 21 - self.total_each_hand(self._hand_of_dealer) < 21 - self.total_each_hand(self._hand_of_player) : self.print_you_lose()
 
         if 21 - self.total_each_hand(self._hand_of_dealer) > 21 - self.total_each_hand(self._hand_of_player) :
             print(f"You have: {self._hand_of_player} equal {self.total_each_hand(self._hand_of_player)}")
