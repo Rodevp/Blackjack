@@ -56,12 +56,8 @@ class BlackJack :
         if len(self._hand_of_dealer) > 2 :
             return self._hand_of_dealer[0], self._hand_of_dealer[1] 
 
-    
-    def start(self) :
 
-        for _ in range(2) :
-            self.deal_hand(self._hand_of_dealer)
-            self.deal_hand(self._hand_of_player)
+    def menu(self) :
 
         while self._dealer_in or self._player_in :
             print(f"Hand of dealer {self.reveal_hand_of_dealer()} ")
@@ -83,6 +79,15 @@ class BlackJack :
             if self.total_each_hand(self._hand_of_player) >= 21 : break
 
             if self.total_each_hand(self._hand_of_dealer) >= 21 : break
+
+    
+    def start(self) :
+
+        for _ in range(2) :
+            self.deal_hand(self._hand_of_dealer)
+            self.deal_hand(self._hand_of_player)
+
+        self.menu()
 
 
 if __name__ == "__main__" :
