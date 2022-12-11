@@ -38,7 +38,7 @@ class BlackJack :
                 total = total + card
 
             if card in face : 
-                total = total + 1
+                total = total + 10
     
             if total > 11 :
                 total = total + 1
@@ -88,6 +88,37 @@ class BlackJack :
             self.deal_hand(self._hand_of_player)
 
         self.menu()
+
+        if self.total_each_hand(self._hand_of_player)  == 21 :
+            print(f"You have: {self._hand_of_player} equal 21")
+            print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
+            print("YOU WIN!!! :D")
+
+        if self.total_each_hand(self._hand_of_player)  > 21 :
+            print(f"You have: {self._hand_of_player} equal {self.total_each_hand(self._hand_of_player)}")
+            print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
+            print("YOU WIN!!! :D")
+
+        if self.total_each_hand(self._hand_of_dealer)  == 21 :
+            print(f"You have: {self._hand_of_player} equal {self.total_each_hand(self._hand_of_player)}")
+            print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
+            print("YOU LOSE!!! :(") 
+
+        if self.total_each_hand(self._hand_of_dealer)  > 21 :
+            print(f"You have: {self._hand_of_player} equal {self.total_each_hand(self._hand_of_player)}")
+            print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
+            print("YOU LOSE!!! :(")
+
+        if 21 - self.total_each_hand(self._hand_of_dealer) < 21 - self.total_each_hand(self._hand_of_player) :
+            print(f"You have: {self._hand_of_player} equal {self.total_each_hand(self._hand_of_player)}")
+            print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
+            print("YOU LOSE!!! :(")
+
+        if 21 - self.total_each_hand(self._hand_of_dealer) > 21 - self.total_each_hand(self._hand_of_player) :
+            print(f"You have: {self._hand_of_player} equal {self.total_each_hand(self._hand_of_player)}")
+            print(f"dealer have {self._hand_of_dealer} equal {self.total_each_hand(self._hand_of_dealer)}")
+            print("YOU WIN!!! :D")
+
 
 
 if __name__ == "__main__" :
